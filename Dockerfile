@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y \
   zip \
   sudo
 RUN echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
-RUN curl -o bin_terraform.zip https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip && unzip -o bin_terraform.zip && mv terraform /usr/bin && rm -rf bin_terraform.zip
-RUN curl -o bin_packer.zip https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip && unzip bin_packer.zip && mv packer /usr/bin && rm -rf bin_packer.zip
+RUN curl -o bin_terraform.zip https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip && unzip -o bin_terraform.zip && mv terraform /usr/bin && rm -rf bin_terraform.zip
+RUN curl -o bin_packer.zip https://releases.hashicorp.com/packer/1.6.6/packer_1.6.6_linux_amd64.zip && unzip bin_packer.zip && mv packer /usr/bin && rm -rf bin_packer.zip
 USER jenkins
 
 COPY docker-resources/jenkins.yaml /usr/share/jenkins/ref/jenkins.yaml
